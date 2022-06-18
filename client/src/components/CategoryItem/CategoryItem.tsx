@@ -8,9 +8,22 @@ interface Props {
 }
 
 const CategoryItem: React.FC<Props> = ({ img, title, cat }) => {
+  const getCategoryLink = () => {
+    switch(cat) {
+      case "women":
+        return "/women";
+      case "men":
+        return "/men";
+      case "accessories":
+        return "/accessories";
+      default:
+        return `/products/${cat}`;
+    }
+  };
+
   return (
     <Container>
-      <Link to={`/products/${cat}`}>
+      <Link to={getCategoryLink()}>
         <Image src={img} />
         <Info>
           <Title>{title}</Title>

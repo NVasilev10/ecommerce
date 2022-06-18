@@ -1,0 +1,38 @@
+.searchBar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 20px;
+  position: relative;
+  max-width: 400px;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.clearBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 8px;
+  color: #888;
+  transition: color 0.2s;
+}
+
+.clearBtn:hover {
+  color: #333;
+}
+
+.searchIcon {
+  margin-left: 8px;
+  color: #888;
+}

@@ -25,6 +25,26 @@ router.post("/register", async (req, res) => {
 // login
 router.post("/login", async (req, res) => {
   try {
+    // TEST LOGIN - Remove after MongoDB is set up
+    if (req.body.username === "admin" && req.body.password === "admin") {
+      const accessToken = jwt.sign(
+        {
+          id: "test_admin_id",
+          isAdmin: true,
+        },
+        process.env.JWT_SEC,
+        { expiresIn: "3d" }
+      );
+
+      return res.status(200).json({
+        _id: "test_admin_id",
+        username: "admin",
+        email: "admin@test.com",
+        isAdmin: true,
+        accessToken: accessToken,
+      });
+    }
+
     const user = await User.findOne({ username: req.body.username });
 
     !user && res.status(401).json("Wrong username");

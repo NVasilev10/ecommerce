@@ -26,12 +26,18 @@ export const Language = styled.span`
   ${mobile({ display: "none" })}
 `;
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.form`
   border: 0.5px solid lightgray;
   display: flex;
   align-items: center;
   margin-left: 25px;
   padding: 5px;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  
+  &:focus-within {
+    border-color: #333;
+  }
 `;
 
 export const Input = styled.input`

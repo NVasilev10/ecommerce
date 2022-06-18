@@ -12,10 +12,10 @@ import SendIcon from "@mui/icons-material/Send";
 const NewsLetter: React.FC = () => {
   return (
     <Container>
-      <Title>Newsletter</Title>
-      <Desc>Get timely updates from your favourite products</Desc>
+      <Title>Join Our Fashion Community</Title>
+      <Desc>Subscribe to get exclusive offers, style tips, and first access to new collections. Unsubscribe anytime.</Desc>
       <InputContainer>
-        <Input placeholder="Your e-mail" />
+        <Input placeholder="Enter your email" />
         <Button>
           <SendIcon />
         </Button>

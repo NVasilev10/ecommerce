@@ -1,0 +1,84 @@
+.productFilterContainer {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 250px;
+}
+
+.productFilterContainer h4 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.filterGroupClient {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filterGroupClient label {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.filterGroupClient input,
+.filterGroupClient select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+  background: white;
+}
+
+.filterGroupClient input:focus,
+.filterGroupClient select:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.priceRange {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.priceRange input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.priceRange span {
+  color: #999;
+  font-weight: 600;
+}
+
+.resetBtnClient {
+  width: 100%;
+  padding: 10px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.resetBtnClient:hover {
+  background: #555;
+}
+
+@media only screen and (max-width: 600px) {
+  .productFilterContainer {
+    max-width: 100%;
+  }
+}

@@ -10,21 +10,28 @@ import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
-import { useSelector } from "react-redux";
+import { NotificationContainer } from "./components/notification/Notification";
 
 function App() {
-  const admin = JSON.parse(
-    //@ts-ignore
-    JSON.parse(localStorage.getItem("persist:root")).user
-  ).currentUser?.isAdmin;
+  let admin = false;
+  try {
+    const persistRoot = localStorage.getItem("persist:root");
+    if (persistRoot) {
+      const userData = JSON.parse(JSON.parse(persistRoot).user);
+      admin = userData?.currentUser?.isAdmin || false;
+    }
+  } catch (error) {
+    console.log("No user data found, showing login");
+  }
 
   return (
     <Router>
+      <NotificationContainer />
       <Switch>
         <Route path="/login">
           <Login />
         </Route>
-        {admin && (
+        {admin ? (
           <>
             <Topbar />
             <div className="container">
@@ -52,6 +59,10 @@ function App() {
               </Route>
             </div>
           </>
+        ) : (
+          <Route path="/">
+            <Login />
+          </Route>
         )}
       </Switch>
     </Router>

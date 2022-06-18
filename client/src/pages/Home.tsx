@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 import NewsLetter from "../components/NewsLetter/NewsLetter";
 import Products from "../components/Products/Products";
 import Slider from "../components/Slider/Slider";
+import Testimonials from "../components/Testimonials/Testimonials";
 
 const Home: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const Home: React.FC = () => {
       <Slider />
       <Categories />
       <Products />
+      <Testimonials />
       <NewsLetter />
       <Footer />
     </div>

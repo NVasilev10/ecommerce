@@ -1,0 +1,58 @@
+.filterContainer {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  width: 250px;
+}
+
+.filterContainer h4 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.filterGroup {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filterGroup label {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.filterGroup input,
+.filterGroup select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.filterGroup input:focus,
+.filterGroup select:focus {
+  outline: none;
+  border-color: #5550bd;
+}
+
+.resetBtn {
+  width: 100%;
+  padding: 10px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.resetBtn:hover {
+  background: #ff5252;
+}

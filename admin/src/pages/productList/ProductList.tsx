@@ -5,17 +5,99 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProducts, getProducts } from "../../redux/apiCalls";
+import SearchBar from "../../components/search/SearchBar";
+import Filter from "../../components/filter/Filter";
+import Pagination from "../../components/pagination/Pagination";
+import DeleteModal from "../../components/deleteModal/DeleteModal";
 
 export default function ProductList() {
   const products = useSelector((state: any) => state.product.products);
   const dispatch = useDispatch();
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filters, setFilters] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
+  const [deleteModal, setDeleteModal] = useState({
+    isOpen: false,
+    productId: null,
+  });
+
+  const itemsPerPage = 8;
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const startIdx = (currentPage - 1) * itemsPerPage;
+  const paginatedData = filteredProducts.slice(startIdx, startIdx + itemsPerPage);
 
   useEffect(() => {
     getProducts(dispatch);
   }, [dispatch]);
 
-  const handleDelete = (id: any) => {
-    deleteProducts(id, dispatch);
+  useEffect(() => {
+    filterProducts(searchQuery, filters);
+  }, [products]);
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    filterProducts(query, filters);
+    setCurrentPage(1);
+  };
+
+  const handleFilterChange = (newFilters: any) => {
+    setFilters(newFilters);
+    filterProducts(searchQuery, newFilters);
+    setCurrentPage(1);
+  };
+
+  const filterProducts = (query: string, appliedFilters: any) => {
+    let result = products;
+
+    if (query) {
+      result = result.filter(
+        (item: any) =>
+          item.title.toLowerCase().includes(query.toLowerCase()) ||
+          item.desc.toLowerCase().includes(query.toLowerCase())
+      );
+    }
+
+    if (appliedFilters.priceMin) {
+      result = result.filter(
+        (item: any) => item.price >= parseFloat(appliedFilters.priceMin)
+      );
+    }
+
+    if (appliedFilters.priceMax) {
+      result = result.filter(
+        (item: any) => item.price <= parseFloat(appliedFilters.priceMax)
+      );
+    }
+
+    if (appliedFilters.status) {
+      result = result.filter(
+        (item: any) =>
+          (appliedFilters.status === "in-stock" && item.inStock) ||
+          (appliedFilters.status === "out-of-stock" && !item.inStock)
+      );
+    }
+
+    setFilteredProducts(result);
+  };
+
+  const handleDeleteClick = (id: any) => {
+    setDeleteModal({
+      isOpen: true,
+      productId: id,
+    });
+  };
+
+  const handleDeleteConfirm = () => {
+    const productId = deleteModal.productId;
+    deleteProducts(productId, dispatch);
+    setFilteredProducts(
+      filteredProducts.filter((item: any) => item._id !== productId)
+    );
+    setDeleteModal({
+      isOpen: false,
+      productId: null,
+    });
   };
 
   const columns = [
@@ -56,7 +138,7 @@ export default function ProductList() {
             </Link>
             <DeleteOutline
               className="productListDelete"
-              onClick={() => handleDelete(params.row._id)}
+              onClick={() => handleDeleteClick(params.row._id)}
             />
           </>
         );
@@ -66,14 +148,44 @@ export default function ProductList() {
 
   return (
     <div className="productList">
+      <div className="productListHeader">
+        <h2>Product Management</h2>
+      </div>
+      <div className="productListFilters">
+        <SearchBar
+          onSearch={handleSearch}
+          placeholder="Search by product name or description..."
+        />
+        <Filter
+          onFilterChange={handleFilterChange}
+          filterType="products"
+        />
+      </div>
       <DataGrid
-        rows={products}
+        rows={paginatedData}
         disableSelectionOnClick
         columns={columns}
-        pageSize={8}
         checkboxSelection
         getRowId={(row) => row._id}
+      />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
+      <DeleteModal
+        isOpen={deleteModal.isOpen}
+        title="Delete Product"
+        message="Are you sure you want to delete this product? This action cannot be undone."
+        onConfirm={handleDeleteConfirm}
+        onCancel={() =>
+          setDeleteModal({
+            isOpen: false,
+            productId: null,
+          })
+        }
       />
     </div>
   );
 }
+

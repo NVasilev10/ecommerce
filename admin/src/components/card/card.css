@@ -1,0 +1,41 @@
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.card-hoverable {
+  cursor: pointer;
+}
+
+.card-hoverable:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-title {
+  margin: 16px 16px 8px 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+}
+
+.card-subtitle {
+  margin: 0 16px 16px 16px;
+  font-size: 14px;
+  color: #999;
+}
+
+.card-content {
+  padding: 16px;
+}

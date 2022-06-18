@@ -1,0 +1,227 @@
+.articleDetail {
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.articleHeroImage {
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.articleContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.articleHeader {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.articleHeader h1 {
+  font-size: 42px;
+  margin: 0 0 20px 0;
+  color: #333;
+  line-height: 1.3;
+}
+
+.articleMeta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #666;
+}
+
+.category {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.date,
+.author {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.articleBody {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 40px;
+}
+
+.content {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  line-height: 1.8;
+}
+
+.content p {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.content strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shareBox,
+.likeBox,
+.relatedBox {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.shareBox h3,
+.relatedBox h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  color: #333;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 12px;
+}
+
+.shareButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.shareBtn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 14px;
+}
+
+.shareBtn.facebook {
+  background: #3B5999;
+}
+
+.shareBtn.facebook:hover {
+  background: #2d4373;
+}
+
+.shareBtn.twitter {
+  background: #1DA1F2;
+}
+
+.shareBtn.twitter:hover {
+  background: #1a8cd8;
+}
+
+.shareBtn.linkedin {
+  background: #0077B5;
+}
+
+.shareBtn.linkedin:hover {
+  background: #005885;
+}
+
+.shareBtn.email {
+  background: #DD4B39;
+}
+
+.shareBtn.email:hover {
+  background: #c23321;
+}
+
+.likeBtn {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #667eea;
+  background: white;
+  color: #667eea;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.likeBtn:hover {
+  background: #667eea;
+  color: white;
+}
+
+.likeBtn.liked {
+  background: #667eea;
+  color: white;
+}
+
+.relatedBox ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.relatedBox li {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.relatedBox li:last-child {
+  border-bottom: none;
+}
+
+.relatedBox a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.relatedBox a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+  .articleHeroImage {
+    height: 300px;
+  }
+
+  .articleHeader h1 {
+    font-size: 28px;
+  }
+
+  .articleMeta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .articleBody {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,162 @@
+.profileContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profileContainer h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.profileCard {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 30px;
+  background: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+.profileAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.profileInfo {
+  flex: 1;
+}
+
+.profileInfo h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.profileInfo p {
+  margin: 5px 0 0 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.memberSince {
+  color: #999 !important;
+  font-size: 12px !important;
+  margin-top: 8px !important;
+}
+
+.editBtn {
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.editBtn:hover {
+  background: #555;
+}
+
+.profileDetails {
+  padding: 30px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detailRow span:first-child {
+  font-weight: 600;
+  color: #333;
+}
+
+.detailRow span:last-child {
+  color: #666;
+}
+
+.editForm {
+  padding: 30px;
+}
+
+.formGroup {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+}
+
+.formGroup input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #333;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.saveBtn {
+  padding: 12px 30px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.saveBtn:hover {
+  background: #555;
+}
+
+@media only screen and (max-width: 600px) {
+  .profileHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+}
