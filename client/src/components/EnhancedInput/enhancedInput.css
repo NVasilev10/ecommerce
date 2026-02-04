@@ -1,0 +1,194 @@
+/* ===== Enhanced Input Styles ===== */
+.enhanced-input-group {
+  margin-bottom: 20px;
+  width: 100%;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.enhanced-input-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+.enhanced-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.enhanced-input-wrapper:hover {
+  border-color: #d1d5db;
+}
+
+.enhanced-input-wrapper.focused {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  background: white;
+}
+
+.enhanced-input-wrapper.error {
+  border-color: #ef4444;
+}
+
+.enhanced-input-wrapper.error.focused {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.enhanced-input-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 18px;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.enhanced-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  background: transparent;
+  color: #1f2937;
+  transition: all 0.3s;
+}
+
+.enhanced-input.with-icon {
+  padding-left: 44px;
+}
+
+.enhanced-input.with-clear {
+  padding-right: 44px;
+}
+
+.enhanced-input::placeholder {
+  color: #d1d5db;
+}
+
+.enhanced-input:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.enhanced-input:focus {
+  color: #1f2937;
+}
+
+/* ===== Clear Button ===== */
+.clear-button {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-button:hover {
+  color: #6b7280;
+}
+
+.clear-button:active {
+  transform: scale(0.95);
+}
+
+/* ===== Character Count ===== */
+.char-count {
+  position: absolute;
+  right: 14px;
+  font-size: 12px;
+  color: #9ca3af;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+/* ===== Hint and Error ===== */
+.enhanced-input-hint {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+.enhanced-input-error {
+  display: block;
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 6px;
+  font-weight: 500;
+  animation: slideInRight 0.3s ease-out;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .enhanced-input {
+    padding: 10px 14px;
+    font-size: 16px;
+  }
+
+  .enhanced-input.with-icon {
+    padding-left: 40px;
+  }
+
+  .enhanced-input.with-clear {
+    padding-right: 40px;
+  }
+
+  .enhanced-input-icon {
+    font-size: 16px;
+    left: 12px;
+  }
+
+  .clear-button,
+  .char-count {
+    right: 12px;
+  }
+}
