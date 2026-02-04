@@ -1,57 +1,93 @@
 .topbar {
   width: 100%;
-  height: 50px;
-  background-color: white;
+  height: 70px;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 999;
+  display: flex;
+  align-items: center;
 }
 
 .topbarWrapper {
   height: 100%;
-  padding: 0px 20px;
+  padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 30px;
-  color: darkblue;
+  font-weight: 800;
+  font-size: 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   cursor: pointer;
+  margin: 0;
+  letter-spacing: -0.5px;
+  transition: opacity 0.3s;
 }
 
-.topRight{
-    display: flex;
-    align-items: center;
+.logo:hover {
+  opacity: 0.9;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
 .topbarIconContainer {
   position: relative;
   cursor: pointer;
-  margin-right: 10px;
-  color: #555;
+  color: #6b7280;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
 }
 
-.topIconBadge{
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: -5px;
-    right: 0px;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
+.topbarIconContainer:hover {
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
 }
 
-.topAvatar{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
+.topIconBadge {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.topAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #667eea;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  object-fit: cover;
+}
+
+.topAvatar:hover {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transform: scale(1.05);
 }
